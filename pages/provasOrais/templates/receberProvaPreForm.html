@@ -1,0 +1,21 @@
+{% extends "global/templates/base.html" %}
+
+{% block main %}
+    <form action="{% url "provas:cadastrarPergunta" %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% for field in form %}
+            <label for="{{field.id_for_label}}">{{field.label}}</label>
+            {{field}}
+            {% if field.help_text %}
+                <p class="help_text">{{field.help_text}}</p>
+            {% endif %}
+            {{field.errors}}
+        {% endfor %}
+        {% if form.non_field_errors %}
+            <div>
+                {{form.non_field_errors}}
+            </div>
+        {% endif %}
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock main %}

@@ -1,0 +1,23 @@
+{% extends "global/templates/base.html" %}
+
+{% block pageTitle %}Assuntos{% endblock pageTitle %}
+
+{% block main %}
+    {% include "provasOrais/partials/novoActionMenu.html" %}
+    <div class="table table-title">
+        <div class='table-title table-item'>ID</div>
+        <div class='table-title table-item'>Assunto</div>
+        <div class='table-title table-item'>Disciplina</div>
+    </div>
+    <div class="table-container">
+        {% for assunto in assuntos %}
+            <a href="{% url "provas:assunto" assunto.id %}">
+                <div class='table table-line'>
+                    <div class='table-item'>{{assunto.id}}</div>
+                    <div class='table-item'>{{assunto.assunto}}</div>
+                    <div class='table-item'>{{assunto.disciplina}}</div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock main %}

@@ -1,0 +1,47 @@
+{% extends "global/templates/base.html" %}
+
+{% block pageTitle %}Questões{% endblock pageTitle %}
+
+{% block main %}
+    {% include "provasOrais/partials/novoActionMenu.html" %}
+    {% comment %} <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Questão</th>
+                <th>Assunto</th>
+                <th>Disciplina</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for questao in questoes %}
+                <tr>
+                    <a href="{% url "provas:questao" questao.id %}">
+                        <td>{{questao.id}}</td>
+                        <td>{{questao.questao}}</td>
+                        <td>{{questao.assunto}}</td>
+                        <td>{{questao.assunto.disciplina}}</td>
+                    </a>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table> {% endcomment %}
+    <div class="table table-title">
+        <div class='table-title table-item'>ID</div>
+        <div class='table-title table-item'>Questão</div>
+        <div class='table-title table-item'>Assunto</div>
+        <div class='table-title table-item'>Disciplina</div>
+    </div>
+    <div class="table-container">
+        {% for questao in questoes %}
+            <a href="{% url "provas:questao" questao.id %}">
+                <div class='table table-line'>
+                    <div class='table-item'>{{questao.id}}</div>
+                    <div class='table-item'>{{questao.questao}}</div>
+                    <div class='table-item'>{{questao.assunto}}</div>
+                    <div class='table-item'>{{questao.assunto.disciplina}}</div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock main %}

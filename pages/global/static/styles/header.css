@@ -1,0 +1,39 @@
+:root {
+    --main-color: #00AFEF;
+    --secondary-color: #FFFFFF;
+    --suplementary-color: #C0C2C8;
+}
+
+header {
+    background-color: var(--main-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1vw;
+}
+
+header a {
+    text-decoration: none;
+}
+
+.Title {
+    display: flex;
+    align-items: center;
+}
+
+.Title img {
+    position: relative;
+    bottom: .1vw;
+    width: 1.1vw;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+header li {
+    margin: 0 1vw;
+    list-style: none;
+}

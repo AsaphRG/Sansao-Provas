@@ -1,0 +1,77 @@
+:root {
+    --main-color: #00AFEF;
+    --secondary-color: #FFFFFF;
+    --suplementary-color: #C0C2C8;
+}
+
+main {
+    padding: 1vw 5vw;
+}
+
+main nav {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    margin-bottom: 1vw;
+}
+
+main li {
+    list-style: none;
+}
+
+main h1 {
+    margin: 0;
+    padding: 0;
+}
+
+main p {
+    margin: 0;
+    padding: 0;
+}
+
+.fa-plus {
+    color: green;
+}
+
+.fa-pencil {
+    color: var(--main-color);
+}
+
+.fa-xmark {
+    color: red;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+.message.success {
+    display: flex;
+    background-color: #00F092;
+    justify-content: center;
+    align-items: center;
+}
+
+a {
+    text-decoration: none;
+}
+
+.btn {
+    margin: 0 0.5vw;
+    padding: 0.5vw;
+    border: none;
+    background-color: var(--suplementary-color);
+}
+
+.btn:last-child {
+    margin-right: 0;
+}
+
+form input {
+    margin-bottom: 1vw;
+}
+
+form select {
+    margin-bottom: 1vw;
+}

@@ -1,0 +1,45 @@
+{% extends "global/templates/base.html" %}
+
+{% block pageTitle %}Turmas{% endblock pageTitle %}
+
+{% block main %}
+    {% include "provasOrais/partials/novoActionMenu.html" %}
+    {% comment %} <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Número</th>
+                <th>Turno</th>
+                <th>Ano</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for turma in turmas %}
+                <tr>
+                    <td><a href="{% url "provas:turma" turma.id %}">{{turma.id}}</a></td>
+                    <td>{{turma.numero}}</td>
+                    <td>{{turma.turno}}</td>
+                    <td>{{turma.ano}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table> {% endcomment %}
+    <div class="table table-title">
+        <div class='table-title table-item'>ID</div>
+        <div class='table-title table-item'>Número</div>
+        <div class='table-title table-item'>Turno</div>
+        <div class='table-title table-item'>Ano</div>
+    </div>
+    <div class="table-container">
+        {% for turma in turmas %}
+            <a href="{% url "provas:turma" turma.id %}">
+                <div class='table table-line'>
+                    <div class='table-item'>{{turma.id}}</div>
+                    <div class='table-item'>{{turma.numero}}</div>
+                    <div class='table-item'>{{turma.turno}}</div>
+                    <div class='table-item'>{{turma.ano}}</div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock main %}

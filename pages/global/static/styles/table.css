@@ -1,0 +1,75 @@
+main table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+main table thead th {
+    background-color: var(--main-color);
+}
+
+main table, th, td {
+    border: 1px solid var(--suplementary-color);
+    
+}
+
+main table td {
+    text-align: center;
+}
+
+main table td:first-child {
+    text-align: center;
+    width: 10%;
+}
+
+main table td:last-child {
+    width: 10%;
+}
+
+main table tr:nth-child(odd) {
+    background-color: var(--secondary-color);
+}
+
+main table tr:nth-child(even) {
+    background-color: var(--suplementary-color);
+}
+
+/* New table */
+
+.table {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.table-title {
+    background-color: var(--main-color);
+    padding: 0.3vw;
+}
+
+.table-container a {
+    display: block;
+    text-decoration: none;
+    padding: 0.5vw;
+}
+
+.table-container a:nth-child(odd) {
+    background-color: var(--secondary-color);
+}
+
+.table-container a:nth-child(even) {
+    background-color: var(--suplementary-color);
+}
+
+.table-item {
+    text-align: center;
+    flex: 5;
+}
+
+.table-item:first-child {
+    flex: 1;
+}
+
+.table-item:last-child {
+    flex: 1;
+}

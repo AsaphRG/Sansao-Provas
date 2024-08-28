@@ -1,0 +1,9 @@
+{% extends "global/templates/base.html" %}
+
+{% block main %}
+{% include "provasOrais/partials/atualizarActionMenu.html" %}
+    <section class='card'>
+        <h1 class='card-item'>Assunto {{assunto.id}}</h1>
+        <p class='card-item'>Assunto: {{assunto}}</p>
+    </section>
+{% endblock main %}

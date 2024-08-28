@@ -1,0 +1,14 @@
+<nav>
+    <a href="{{atualizar}}"><li class='btn att-btn'><i class="fa-solid fa-pencil"></i> Atualizar</li></a>
+    <li>
+        <form action="{{apagar}}" method="POST">
+            {% csrf_token %}
+            {% if confirmation == 'no' %}
+                <input type="hidden" name="confirmation" value="yes">
+                <button type='submit' class='btn del-btn'><i class='fa-solid fa-xmark'></i> Confirma?</button>
+            {% else %}
+                <button type='submit' class='btn del-btn'><i class='fa-solid fa-xmark'></i> Delete</button>
+            {% endif %}
+        </form>
+    </li>
+</nav>

@@ -1,0 +1,37 @@
+{% extends "global/templates/base.html" %}
+
+{% block pageTitle %}Disciplinas{% endblock pageTitle %}
+
+{% block main %}
+    {% include "provasOrais/partials/novoActionMenu.html" %}
+    {% comment %} <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Disciplina</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for disciplina in disciplinas %}
+                <tr>
+                    <td><a href="{% url "provas:disciplina" disciplina.id %}">{{disciplina.id}}</a></td>
+                    <td>{{disciplina.disciplina}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table> {% endcomment %}
+    <div class="table table-title">
+        <div class='table-title table-item'>ID</div>
+        <div class='table-title table-item'>Disciplina</div>
+    </div>
+    <div class="table-container">
+        {% for disciplina in disciplinas %}
+            <a href="{% url "provas:disciplina" disciplina.id %}">
+                <div class='table table-line'>
+                    <div class='table-item'>{{disciplina.id}}</div>
+                    <div class='table-item'>{{disciplina.disciplina}}</div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock main %}

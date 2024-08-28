@@ -1,0 +1,47 @@
+{% extends "global/templates/base.html" %}
+
+{% block pageTitle %}Provas{% endblock pageTitle %}
+
+{% block main %}
+    <nav>
+        <li><a href={% url "provas:receberAssunto" %}><i class="fa-solid fa-plus"></i> Novo</a></li>
+    </nav>
+    {% comment %} <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Aluno</th>
+                <th>Questão</th>
+                <th>Nota</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for pergunta in perguntas %}
+                <tr>
+                    <td><a href="{% url "provas:pergunta" pergunta.id %}">{{pergunta.id}}</a></td>
+                    <td>{{pergunta.prova.aluno}}</td>
+                    <td>{{pergunta.questao.assunto}}</td>
+                    <td>{{pergunta.nota}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table> {% endcomment %}
+    <div class="table table-title">
+        <div class='table-title table-item'>ID</div>
+        <div class='table-title table-item'>Aluno</div>
+        <div class='table-title table-item'>Assunto</div>
+        <div class='table-title table-item'>Nota</div>
+    </div>
+    <div class="table-container">
+        {% for pergunta in perguntas %}
+            <a href="{% url "provas:pergunta" pergunta.id %}">
+                <div class='table table-line'>
+                    <div class='table-item'>{{pergunta.id}}</div>
+                    <div class='table-item'>{{pergunta.prova.aluno}}</div>
+                    <div class='table-item'>{{pergunta.questao.assunto}}</div>
+                    <div class="table-item">{{pergunta.nota}}</div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock main %}

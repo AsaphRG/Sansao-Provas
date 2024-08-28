@@ -1,0 +1,12 @@
+{% extends "global/templates/base.html" %}
+
+{% block pageTitle %}{{aluno.nome}}{% endblock pageTitle %}
+
+{% block main %}
+    {% include "provasOrais/partials/atualizarActionMenu.html" %}
+    <section class='card'>
+        <h1 class='card-item'>Aluno {{aluno.id}}</h1>
+        <p class='card-item'>Nome: {{aluno.nome}}</p>
+        <p class='card-item'>Turma atual: {{aluno.turma}}</p>
+    </section>
+{% endblock main %}

@@ -1,0 +1,43 @@
+{% extends "global/templates/base.html" %}
+
+{% block pageTitle %}Alunos{% endblock pageTitle %}
+
+{% block main %}
+    {% include "provasOrais/partials/novoActionMenu.html" %}
+    {% comment %} <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Aluno</th>
+                <th>Turma</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for aluno in alunos %}
+                <tr>
+                    <a href="{% url "provas:aluno" aluno.id %}">
+                        <td>{{aluno.id}}</td>
+                        <td>{{aluno.nome}}</td>
+                        <td>{{aluno.turma}}</td>
+                    </a>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table> {% endcomment %}
+    <div class="table table-title">
+        <div class='table-title table-item'>ID</div>
+        <div class='table-title table-item'>Nome</div>
+        <div class='table-title table-item'>Turma</div>
+    </div>
+    <div class="table-container">
+        {% for aluno in alunos %}
+            <a href="{% url "provas:aluno" aluno.id %}">
+                <div class='table table-line'>
+                    <div class='table-item'>{{aluno.id}}</div>
+                    <div class='table-item'>{{aluno.nome}}</div>
+                    <div class='table-item'>{{aluno.turma}}</div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock main %}

@@ -1,0 +1,57 @@
+{% extends "global/templates/base.html" %}
+
+{% block main %}
+    <form action="{{form_action}}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if not questoes %}
+            {% for field in form %}
+                <label for="{{field.id_for_label}}">{{field.label}}</label>
+                {{field}}
+                {% if field.help_text %}
+                    <p class="help_text">{{field.help_text}}</p>
+                {% endif %}
+                {{field.errors}}
+            {% endfor %}
+        {% endif %}
+
+        {% if aluno %}
+            <input type="hidden" name="aluno" value="{{aluno}}">
+        {% endif %}
+
+        {% if questoes %}
+            {% for questao in questoes %}
+                <label for="id_questao">Questão</label>
+                <select name="questao" id="id_questao" style="display: none" required>
+                    <option value="{{questao.id}}" selected></option>
+                </select>
+                <textarea cols="40" rows="5" disabled>{{questao}}</textarea>
+                {% if questao.help_text %}
+                    <p class="help_text">{{questao.help_text}}</p>
+                {% endif %}
+                <label for="{{form.resposta.id_for_label}}">{{form.resposta.label}}</label>
+                {{form.resposta}}
+                {% if form.resposta.help_text %}
+                    <p class="help_text">{{form.resposta.help_text}}</p>
+                {% endif %}
+                <label for="{{form.nota.id_for_label}}">{{form.nota.label}}</label>
+                {{form.nota}}
+                {% if form.nota.help_text %}
+                    <p class="help_text">{{form.nota.help_text}}</p>
+                {% endif %}
+
+                {% if form.non_field_errors %}
+                    <div>
+                        {{form.non_field_errors}}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        {% if form.non_field_errors %}
+            <div>
+                {{form.non_field_errors}}
+            </div>
+        {% endif %}
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock main %}

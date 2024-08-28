@@ -1,0 +1,47 @@
+{% extends "global/templates/base.html" %}
+
+{% block main %}
+    <form action="{{form_action}}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {% if aluno %}
+            <input type="hidden" name="aluno" value="{{aluno}}">
+        {% endif %}
+
+
+        {% if form %}
+            {% for questao in form %}
+                <label for="id_questao">Questão</label>
+                <select name="questao" id="id_questao" style="display: none" required>
+                    <option value="{{questao.questao.id}}" selected></option>
+                </select>
+                <textarea cols="40" rows="5" disabled>{{questao.questao}}</textarea>
+                {% if questao.help_text %}
+                    <p class="help_text">{{questao.help_text}}</p>
+                {% endif %}
+                <label for="{{questao.resposta.id_for_label}}">{{questao.resposta.label}}</label>
+                {{questao.resposta}}
+                {% if questao.resposta.help_text %}
+                    <p class="help_text">{{questao.resposta.help_text}}</p>
+                {% endif %}
+                <label for="{{questao.nota.id_for_label}}">{{questao.nota.label}}</label>
+                {{questao.nota}}
+                {% if questao.nota.help_text %}
+                    <p class="help_text">{{questao.nota.help_text}}</p>
+                {% endif %}
+
+                {% if questao.non_field_errors %}
+                    <div>
+                        {{questao.non_field_errors}}
+                    </div>
+                {% endif %}
+            {% endfor %}
+        {% endif %}
+
+        {% if form.non_field_errors %}
+            <div>
+                {{form.non_field_errors}}
+            </div>
+        {% endif %}
+        <input type="submit" value="Enviar">
+    </form>
+{% endblock main %}

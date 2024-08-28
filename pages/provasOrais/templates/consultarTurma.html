@@ -1,0 +1,11 @@
+{% extends "global/templates/base.html" %}
+
+{% block main %}
+{% include "provasOrais/partials/atualizarActionMenu.html" %}
+    <section class='card'>
+        <h1 class='card-item'>Turma {{turma.id}}</h1>
+        <p class='card-item'>Número: {{turma}}</p>
+        <p class='card-item'>Ano: {{turma.ano}}</p>
+        <p class='card-item'>Turno: {{turma.turno}}</p>
+    </section>
+{% endblock main %}

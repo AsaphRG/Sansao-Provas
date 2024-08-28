@@ -1,0 +1,15 @@
+{% extends "global/templates/base.html" %}
+{% load static %}
+{% block pageStyle %}{% static "styles/home.css" %}{% endblock pageStyle %}
+{% block pageTitle %}Página inicial{% endblock pageTitle %}
+
+{% block main %}
+<section class="main">
+    <div class="card-menu"><a href="{% url "provas:disciplinas" %}">Disciplinas</a></div>
+    <div class="card-menu"><a href="{% url "provas:assuntos" %}">Assuntos</a></div>
+    <div class="card-menu"><a href="{% url "provas:questoes" %}">Questões</a></div>
+    <div class="card-menu"><a href="{% url "provas:turmas" %}">Turmas</a></div>
+    <div class="card-menu"><a href="{% url "provas:alunos" %}">Alunos</a></div>
+    <div class="card-menu"><a href="{% url "provas:provas" %}">Provas aplicadas</a></div>
+</section>
+{% endblock main %}

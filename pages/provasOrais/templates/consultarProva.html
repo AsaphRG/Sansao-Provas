@@ -1,0 +1,16 @@
+{% extends "global/templates/base.html" %}
+<!-- Visualização: Aluno, assunto e nota -->
+
+{% block main %}
+{% include "provasOrais/partials/atualizarActionMenu.html" %}
+    <section class='card'>
+        <h1 class='card-item'>Prova {{prova.id}}</h1>
+        <p class='card-item'>Aluno: {{prova.aluno}}</p>
+        <p class='card-item'>Nota da prova: {{prova.nota}}</p>
+        {% for pergunta in perguntas %}
+            <p class="card-item">Pergunta: {{pergunta.questao}}</p>
+            <p class="card-item">Resposta: {{pergunta.resposta}}</p>
+            <p class="card-item">Nota: {{pergunta.nota}}</p>
+        {% endfor %}
+    </section>
+{% endblock main %}
